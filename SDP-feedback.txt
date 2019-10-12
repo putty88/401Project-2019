@@ -1,0 +1,18 @@
+
+Ballpark Bookie SDP Feedback
+============================
+
+Great work on this document.  Nothing to add here.  Keep up the good work!
+
+
+SRS: Initial submission 8% out of 8%, plus 2% out of 2% for the Gantt chart.
+      10% out of 10% = 100% which is an A-plus
+
+SDP: Initial submission 5% out of 5% which is an A-plus.
+
+Total Score:
+   Project proposal/presentation       5%
+   SRS initial and sched. initial      9%
+   SDP initial submission              5%
+   total                              19% out of 20% = 95% which is an A
+
