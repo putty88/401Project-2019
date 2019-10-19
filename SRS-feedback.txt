@@ -1,0 +1,47 @@
+
+Ballpark Bookie SRS Feedback
+============================
+
+This is a good start, a good effort that shows you guys are thinking about what
+the overall project will do.  I like the CSCI breakdown structure, which reflects
+good divisions for the project.  There are a few comments and some re-arrangement
+that needs to be done, which costs you a point.
+
+Here are the comments in the order I noticed them.
+
+1) The 3rd paragraph of your overview should be re-written to be grammatically
+   correct:
+
+   If we get ahead of schedule there is more information we would like to provide
+   to our user, such as projections of how individual players will do, or the
+   probability that a selected team will make the playoffs.
+
+2) You seem to have confused section 2 with section 3.  Section 2 provides the
+   breakdown of the CSCI into CSC's and then into CSU's.  You have written it as
+   the requirements themselves, with shall statements.  This is more appropriate
+   for section 3.  Basically you can swap the two sections.
+
+3) For section 3, when you make it into section 2, put the name of each of the
+   sections at the start of each of those explanations.  This should give you
+   excellent breakdown structure, along with good descriptions of each CSC and
+   CSU in the project *in section 2*, then the functional requirements go on to
+   flow out of that in section 3.
+
+4) Make sure that when you have a "will" statement it starts on its own new line
+   in the document.  For example, in 2.2.4 you have the will statement for the
+   Big Predictions Page following right after the "shall" statement at the end
+   of that line.  It should start a new [un-numbered] line directly under that
+   requirement.
+
+5) Remember that requirements are SINGLE STATEMENTS.  When you write a full
+   paragraph, you are describing not specifying.  Keep each numbered requirement
+   to a single sentence.  NEVER have the word "and" in a requirement since that
+   indicates more than one requirement in a single statement.
+
+Overall, this is nice work!  You guys have put thought into it, there's no doubt!
+
+Make the changes listed above by the end of the semester for full credit on this assignment.
+
+Initial submission 7% out of 8%, plus 2% out of 2% for the Gantt chart.
+      9% out of 10% = 90% which is an A-minus
+
