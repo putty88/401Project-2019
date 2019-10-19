@@ -5,29 +5,9 @@ import './App.css';
 // import { Navbar, Jumbotron, Button } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav'
 import {BrowserRouter} from 'react-router-dom';
-import { Navbar, Jumbotron, Button, Form, Col, Row } from 'react-bootstrap';
+import { Navbar, Jumbotron, Button, Form, Col, Row} from 'react-bootstrap';
 
-// function App() {
-//   return (
-//     <div classNameName="App">
-//       <header classNameName="App-header">
-//         <img src={logo} classNameName="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           classNameName="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-class App extends Component {
+class BigPredictions extends Component {
   render() {
     return (
       <div>
@@ -45,7 +25,7 @@ class App extends Component {
         <div>
           <Row>
             <Col md ="3">
-            <BrowserRouter>
+              <BrowserRouter>
               <div className="col-lg-9">
                 <div>
                   <h2>Schedules</h2></div>
@@ -143,27 +123,35 @@ class App extends Component {
               </BrowserRouter>
             </Col>
             <Col>
-              <div className="col-lg-9 mx-auto">
-                <Row>
-                  <Form>
-                    <Form.Group as={Col} md="6" controlId="team1">
-                      <Form.Label>Team One</Form.Label>
-                      <Form.Control type="team" placeholder="Enter Team One" />
-                    </Form.Group>
-                    <Form.Group as={Col} md="6" controlId="team2">                    
-                      <Form.Label>Team Two</Form.Label>
-                      <Form.Control type="team" placeholder="Enter Team Two" />
-                    </Form.Group>
-                  </Form>
-                </Row>
-                <Row>
-                  <Button variant="primary" type="compare">
-                    Calculate
-                  </Button>
-                  <Form.Text classNameName="text-muted">
-                    Team ____ will win the game.
-                  </Form.Text>
-                </Row>
+              <div className="col-lg-9">
+                <Row>
+                  <Form>
+                    <Form.Group as={Col} md="6" controlId="team1">
+                      <Form.Label>Playoff Chances</Form.Label>
+                      <Form.Control type="team" placeholder="Enter a team" />
+                    </Form.Group>
+                  </Form>
+                  <Button variant="primary" type="compare">
+                    Calculate
+                  </Button>
+                  <Form.Text classNameName="text-muted">
+                    ____ has a ___ percent chance of making the Playoffs.
+                  </Form.Text>
+                  <Form.Text classNameName="text">
+                    Current NL Playoff Chance Leaders
+                    1. _______
+                    2. _______
+                  </Form.Text>
+                  <Form.Text classNameName="text">
+                    Current AL Playoff Chance Leaders
+                    1. _______
+                    2. _______
+                  </Form.Text> 
+                  World Series Chance Leaders
+                    1. 
+                    2.
+                    3.
+                </Row>
               </div>
             </Col>
           </Row>
@@ -173,4 +161,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default BigPredictions;
