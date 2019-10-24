@@ -5,7 +5,7 @@ import base64
 import requests
 
 season = '2018-2019-regular'
-apikey_token = '5cd1a799-8747-4eb4-8209-9f4850'
+apikey_token = 'e0c4e5ec-08d5-414d-88ce-9b392f'
 # apikey_token = 'Xx_thomas_xX'
 password = 'ilikevike'
 # MYSPORTSFEED = 0
