@@ -7,26 +7,6 @@ import Nav from 'react-bootstrap/Nav'
 import {BrowserRouter} from 'react-router-dom';
 import { Navbar, Jumbotron, Button, Form, Col, Row } from 'react-bootstrap';
 
-// function App() {
-//   return (
-//     <div classNameName="App">
-//       <header classNameName="App-header">
-//         <img src={logo} classNameName="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           classNameName="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
 class App extends Component {
   render() {
     return (
@@ -34,11 +14,11 @@ class App extends Component {
         <div>
           <Navbar bg="dark" variant="dark" sticky="top">
             <Form inline style={{ padding: 10 }}>
-              <Navbar.Brand href="#home">Ballpark Bookie</Navbar.Brand>
-              <Button variant="danger">Home</Button>
-              <Button variant="primary">Big Predictions</Button>
+              <Navbar.Brand  className="mr-sm-4" href="#home">Ballpark Bookie</Navbar.Brand>
+              <Button className="mr-sm-4" variant="danger">Home</Button>
+              <Button className="mr-sm-4" variant="primary">Big Predictions</Button>
               <Form.Control type="text" placeholder="Search" className="mr-sm-4" />
-              <Button className=" "variant="danger">Search</Button>
+              <Button className="mr-sm-4" variant="danger">Search</Button>
             </Form>
           </Navbar>
         </div>    
