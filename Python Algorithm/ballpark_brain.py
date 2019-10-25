@@ -49,13 +49,17 @@ def getData(teamA, teamB, keyword, season):
     #        status_code=response.status_code))
     #    print('Response HTTP Response Body: {content}'.format(content=response.content))
        datastore = json.loads(response.content)
-    #    print('datastore = ', datastore['games'][0]['schedule'])
-    #    print("YOYOYO ", type(datastore))
-    #    print('something', type((response.content)))
     except requests.exceptions.RequestException:
        print('HTTP Request failed')
     return(datastore)
 
+
+print(len(getData('','', 'games', '2019')['games']))
+
+for i in range(len(getData('','', 'games', '2019')['games'])):
+    if(getData('','', 'games', '2019')['games'][i]['schedule']['homeTeam']['id'] == 125):
+        print(getData('', '', 'games', '2019')['games'][i]['score'])
+    print('')
 
 print(getData('Astros', 'Dodgers', 'games', '2019')['games'][0]['score'])
 
