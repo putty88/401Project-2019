@@ -5,6 +5,23 @@ api_key = "e0c4e5ec-08d5-414d-88ce-9b392f"
 pswrd = "MYSPORTSFEEDS"
 
 # Basic API Call with inputs as season and keyword to use in all data collection
+
+def boxscoreAPICall(date, homeAbbreviation, awayAbbreviation):
+    try:
+        response = requests.get(
+            url='https://api.mysportsfeeds.com/v2.1/pull/mlb/' + season + '-regular/games/' + date + '-' + 
+            homeAbbreviation + '-' + awayAbbreviation + '/boxscore.json',
+            params={
+                "fordate": "20161121"
+            },
+            headers={
+                "Authorization": "Basic " + base64.b64encode('{}:{}'.format(api_key,pswrd).encode('utf-8')).decode('ascii')
+            }
+        )
+    except requests.exceptions.RequestException:
+        print('HTTP Request failed')
+    return (json.loads(response.content))
+
 def basicAPICall(season, keyword):
     suffix = ''
     if('gamelogs' in keyword):
@@ -90,10 +107,10 @@ def collectAllTeamGamelogs(teamAbbreviation):
 
 
 
-# Problem! Boxscore requires the teams in the API url! 
+# Problem! Boxscore requires the teams and date in the API url! 
 def collectHomeBoxscore(teamAbbreviation, season):
     homeBoxscore = []
-    response = basicAPICall(season, 'boxscore')
+    response = boxscoreAPICall(date, homeAbbreviation, awayAbbreviation)
     for i in range(len(response['game'])):
         if(response['game'][i]['homeTeam']['abbreviation'] == teamAbbreviation):
             homeBoxscore.append(response['gamelogs'][i])
@@ -126,7 +143,12 @@ collectAllHomeGames('OAK')
 
 
 
-# print(len(collectAllHomeGames('OAK', '2016')[2]))
+print(collectHomeGames('WAS', '2019'))
+
+
+
+
+
 
 
 def testAPICall(season, keyword):
