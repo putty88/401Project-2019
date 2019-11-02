@@ -17,7 +17,7 @@ class App extends Component {
               <Navbar.Brand  className="mr-sm-4" href="#home">Ballpark Bookie</Navbar.Brand>
               <Button className="mr-sm-4" variant="danger">Home</Button>
               <Button className="mr-sm-4" variant="primary">Big Predictions</Button>
-              <Form.Control type="text" placeholder="Search" className="mr-sm-4" />
+              <Form.Control className="mr-sm-4" type="text" placeholder="Search" />
               <Button className="mr-sm-4" variant="danger">Search</Button>
             </Form>
           </Navbar>
