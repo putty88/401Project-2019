@@ -1,6 +1,6 @@
 import base64
-import requests
 import json
+import requests
 import csv
 api_key = "e0c4e5ec-08d5-414d-88ce-9b392f"
 pswrd = "MYSPORTSFEEDS"
@@ -37,5 +37,5 @@ def basicAPICall(season, keyword):
 
 
 
-
- basicAPICall(2018, keyword):
+keyword = 'team_stats_totals'
+basicAPICall('2018', keyword)
