@@ -21,7 +21,7 @@ def basicAPICall(season, keyword):
                 "Authorization": "Basic " + base64.b64encode('{}:{}'.format(api_key,pswrd).encode('utf-8')).decode('ascii')
             }
         )
-        f = open('teamStats' + season + '.csv', "w")
+        f = open(keyword+'.csv', "w", encoding='utf-8')
         f.write(response.text)
         f.close()
     except requests.exceptions.RequestException:
@@ -75,4 +75,3 @@ normie('2018')
 #     return t1_stats, t2_stats
 
 # Example of how to ask for NumPy Arrays of two chosen teams
-### print(choose_teams(111,133))
