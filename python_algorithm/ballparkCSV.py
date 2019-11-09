@@ -35,7 +35,7 @@ def basicAPICall(season, keyword, format):
 
 
 
-
+# Returns team stats for a given season
 def choose_team(A, season):
     df = pd.read_csv('teamStats' + season + '.csv', index_col='#Team ID')
     A_stats = df.loc[A].rename_axis('#Team ID').values
@@ -64,22 +64,38 @@ def subtractArrays(home, away):
         delta.append(home[i]-away[i])
     return delta
 
-games2019 = basicAPICall('2019', 'games', 'json')
-games2018 = basicAPICall('2018', 'games', 'json')
-games2017 = basicAPICall('2017', 'games', 'json')
-games2016 = basicAPICall('2016', 'games', 'json')
+# games2019 = basicAPICall('2019', 'games', 'json')
+# games2018 = basicAPICall('2018', 'games', 'json')
+# games2017 = basicAPICall('2017', 'games', 'json')
+# games2016 = basicAPICall('2016', 'games', 'json')
+
+def createJsonObject(season):
+    result = basicAPICall(season, 'games', 'json')
+    return result
 
 def createWinList(season):
     winList = []
+    seasonJson = createJsonObject(season)
     for i in range(len(basicAPICall(season, 'games', 'json')['games'])):
-        if(basicAPICall(season, 'games', 'json')['games'][i]['score']['homeScoreTotal'] > basicAPICall(season, 'games', 'json')['games'][i]['score']['awayScoreTotal']):
+    # for i in range(10):
+        if(seasonJson['games'][i]['score']['homeScoreTotal'] > seasonJson['games'][i]['score']['awayScoreTotal']):
             winList.append(1)
         else:
             winList.append(-1)
     print(winList)
     return winList
 
-createWinList('2019')
+def createDeltaList(season):
+    deltaList = []
+    seasonJson = createJsonObject(season)
+    for i in range(len(basicAPICall(season, 'games', 'json')['games'])):
+    # for i in range(100):
+        deltaList.append(subtractArrays(normalize(choose_team(seasonJson['games'][i]['schedule']['awayTeam']['id'], season), season), normalize(choose_team(seasonJson['games'][i]['schedule']['homeTeam']['id'], season), season)))
+    print(deltaList)
+    return deltaList
+
+
+createDeltaList('2019')
 
 # print(basicAPICall('2016', 'games', 'json')['games'][0]['score']['homeScoreTotal'])
 
