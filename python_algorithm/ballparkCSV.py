@@ -27,7 +27,10 @@ def basicAPICall(season, keyword, format):
         # f.close()
     except requests.exceptions.RequestException:
         print('HTTP Request failed')
-    return (response.content)
+    if(format == 'json'):
+        return (json.loads(response.content))
+    else:
+        return (response.content)
 
 
 
@@ -66,12 +69,18 @@ games2018 = basicAPICall('2018', 'games', 'json')
 games2017 = basicAPICall('2017', 'games', 'json')
 games2016 = basicAPICall('2016', 'games', 'json')
 
-# def createWinList(season):
-#     winList = []
-#     for i in range(len(basicAPICall(season, 'games', 'json'))):
-#         if(basicAPICall(season, 'games', 'json').games[i].score ):
+def createWinList(season):
+    winList = []
+    for i in range(len(basicAPICall(season, 'games', 'json')['games'])):
+        if(basicAPICall(season, 'games', 'json')['games'][i]['score']['homeScoreTotal'] > basicAPICall(season, 'games', 'json')['games'][i]['score']['awayScoreTotal']):
+            winList.append(1)
+        else:
+            winList.append(-1)
+    print(winList)
+    return winList
 
+createWinList('2019')
 
-print(basicAPICall('2016', 'games', 'json').games)
+# print(basicAPICall('2016', 'games', 'json')['games'][0]['score']['homeScoreTotal'])
 
-subtractArrays( normalize(choose_team(125, '2018'), '2018'),normalize(choose_team(136, '2018'), '2018'))
+# subtractArrays( normalize(choose_team(125, '2018'), '2018'),normalize(choose_team(136, '2018'), '2018'))
