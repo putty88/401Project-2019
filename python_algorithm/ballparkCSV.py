@@ -98,37 +98,39 @@ def createWinList(season):
     seasonJson = createJsonObject(season)
     for i in range(len(basicAPICall(season, 'games', 'json')['games'])):
         game = seasonJson['games'][i]
-    # for i in range(10):
         if(game['score']['homeScoreTotal'] > game['score']['awayScoreTotal']):
             winList.append((1, game['schedule']['homeTeam']['id'], game['schedule']['awayTeam']['id']))
         else:
             winList.append((-1, game['schedule']['homeTeam']['id'], game['schedule']['awayTeam']['id']))
     return winList
 
-fileName = 'results.pkl'
-if(os.path.exists(fileName)):
-    with open(fileName, 'rb') as f:
-        winList2018 = pickle.load(f)
-else:
-    winList2018 = createWinList('2018')
-    with open(fileName, 'wb') as f:
-        pickle.dump(winList2018, f)
+def loadWinList(season):    
+    fileName = 'results' + season + '.pkl'
+    if(os.path.exists(fileName)):
+        with open(fileName, 'rb') as f:
+            winList = pickle.load(f)
+    else:
+        winList = createWinList(season)
+        with open(fileName, 'wb') as f:
+            pickle.dump(winList, f)
+    return winList
 
-# pickle.dump(winList2018, )
-# print(winList2018)
+# winList2018 BECOMES loadWinList('2018)
 
+winList2016 = loadWinList('2016')
+winList2017 = loadWinList('2017')
+winList2018 = loadWinList('2018')
+winList2019 = loadWinList('2019')
+
+# Collects team IDs in a set
 teams = set()
-
 for i in range(len(winList2018)):
     _, homeID, awayID = winList2018[i]
     teams.add(homeID)
     teams.add(awayID)
-
-
 teams = list(teams)
 teams.sort()
 
-# print(teams)
 
 seasons = ['2016', '2017', '2018', '2019']
 
@@ -138,7 +140,6 @@ stats = sanitize(stats)
 
 normalized_stats = normalize(stats)
 
-# print(normalized_stats.shape)
 
 X = []
 Y = []
@@ -154,8 +155,6 @@ for i in range(len(winList2018)):
 X = np.asarray(X)
 Y = np.asarray(Y)
 
-# print(X.shape)
-# print(Y.shape)
 
 
 model_logistic = LogisticRegression()
@@ -164,48 +163,3 @@ model_logistic.score(X, Y)
 
 score = model_logistic.score(X,Y)
 print(score)
-
-# print(stddevs)
-
-# print(choose_team(130, '2018'))
-
-# def normalize(teamStats, season):
-#     data = pd.read_csv('TeamStats' + season + '.csv')
-#     means = []
-#     stdevs = []
-#     normal = []
-#     for i in range(len(headers)):   
-#         means.append(data[headers[i]].mean())
-#         stdevs.append(data[headers[i]].std())
-#     for j in range(len(headers)):
-#         normal.append( (teamStats[j+4] - means[j]) / stdevs[j])
-#     return normal
-
-
-def subtractArrays(home, away):
-    delta = []
-    for i in range(len(home)):
-        delta.append(home[i]-away[i])
-    return delta
-
-# games2019 = basicAPICall('2019', 'games', 'json')
-# games2018 = basicAPICall('2018', 'games', 'json')
-# games2017 = basicAPICall('2017', 'games', 'json')
-# games2016 = basicAPICall('2016', 'games', 'json')
-
-
-def createDeltaList(season):
-    deltaList = []
-    seasonJson = createJsonObject(season)
-    for i in range(len(basicAPICall(season, 'games', 'json')['games'])):
-    # for i in range(100):
-        deltaList.append(subtractArrays(normalize(choose_team(seasonJson['games'][i]['schedule']['awayTeam']['id'], season), season), normalize(choose_team(seasonJson['games'][i]['schedule']['homeTeam']['id'], season), season)))
-    print(deltaList)
-    return deltaList
-
-
-# createDeltaList('2019')
-
-# print(basicAPICall('2016', 'games', 'json')['games'][0]['score']['homeScoreTotal'])
-
-# subtractArrays( normalize(choose_team(125, '2018'), '2018'),normalize(choose_team(136, '2018'), '2018'))
