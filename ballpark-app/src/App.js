@@ -6,6 +6,7 @@ import './App.css';
 import Nav from 'react-bootstrap/Nav'
 import {BrowserRouter} from 'react-router-dom';
 import { Navbar, Jumbotron, Button, Form, Col, Row } from 'react-bootstrap';
+import Figure from 'react-bootstrap/Figure'
 
 class App extends Component {
   render() {
@@ -140,11 +141,10 @@ class App extends Component {
                   <Button variant="primary" type="compare">
                     Calculate
                   </Button>
-                  <Form.Text classNameName="text-muted">
-                    Team ____ will win the game.
-                  </Form.Text>
+                  
                 </Row>
               </div>
+              <Figure.Image style={{ padding: 100 }} width={850} height={300} alt="850x300" src="https://archivedinnings.files.wordpress.com/2015/08/baseball-map.png" />
             </Col>
           </Row>
         </div>
