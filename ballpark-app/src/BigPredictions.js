@@ -123,34 +123,21 @@ class BigPredictions extends Component {
               </BrowserRouter>
             </Col>
             <Col>
-              <div className="col-lg-9">
-                <Row>
+              <div>
+                <Row className="justify-content-md-center">
                   <Form>
-                    <Form.Group as={Col} md="6" controlId="team1">
+                    <Form.Group controlId="team1">
                       <Form.Label>Playoff Chances</Form.Label>
                       <Form.Control type="team" placeholder="Enter a team" />
                     </Form.Group>
                   </Form>
-                  <Button variant="primary" type="compare">
-                    Calculate
-                  </Button>
-                  <Form.Text classNameName="text-muted">
-                    ____ has a ___ percent chance of making the Playoffs.
-                  </Form.Text>
-                  <Form.Text classNameName="text">
-                    Current NL Playoff Chance Leaders
-                    1. _______
-                    2. _______
-                  </Form.Text>
-                  <Form.Text classNameName="text">
-                    Current AL Playoff Chance Leaders
-                    1. _______
-                    2. _______
-                  </Form.Text> 
-                  World Series Chance Leaders
-                    1. 
-                    2.
-                    3.
+                </Row>
+                <Row className="justify-content-md-center">
+                  <div>
+                    <Button  variant="primary" size="sm">
+                      Calculate
+                    </Button>
+                  </div>
                 </Row>
               </div>
             </Col>
