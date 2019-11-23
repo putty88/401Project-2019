@@ -6,6 +6,7 @@ import './App.css';
 import Nav from 'react-bootstrap/Nav'
 import {BrowserRouter} from 'react-router-dom';
 import { Navbar, Jumbotron, Button, Form, Col, Row} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
 
 class BigPredictions extends Component {
   render() {
