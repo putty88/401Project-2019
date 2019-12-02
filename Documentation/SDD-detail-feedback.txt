@@ -1,0 +1,23 @@
+
+
+Very nice work on this document!  You have captured the architectural details
+quite nicely!  Just a couple of comments:
+
+You still need to make the changes from your architectural submission, which
+are repeated below:
+
+In your use-case diagram, remember that in *actual* UML, you would use a
+rectangle for the system boundary instead of the ellipse you have.  You don't
+need to change it unless you want to, but just be aware.
+
+The "architectural" class diagram doesn't need the internals, just the outer
+blocks of the classes.  However, since you have it done already, you won't
+need to do another one for the detailed design.
+
+Finally, the deployment diagram is NOT that....  this could be labeled with
+something like "System Component Associations" and that way you can leave
+the diagram as-is.
+
+Otherwise, EXCELLENT work!
+
+you got 10% out of 10% for this deliverable which is an A-plus.
