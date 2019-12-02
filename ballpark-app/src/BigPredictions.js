@@ -15,11 +15,11 @@ class BigPredictions extends Component {
         <div>
           <Navbar bg="dark" variant="dark" sticky="top">
             <Form inline style={{ padding: 10 }}>
-              <Navbar.Brand href="#home">Ballpark Bookie</Navbar.Brand>
-              <Button variant="danger">Home</Button>
-              <Button variant="primary">Big Predictions</Button>
-              <Form.Control type="text" placeholder="Search" className="mr-sm-4" />
-              <Button className=" "variant="danger">Search</Button>
+              <Navbar.Brand className="mr-sm-4" href="#home">Ballpark Bookie</Navbar.Brand>
+              <Button className="mr-sm-4" variant="danger">Home</Button>
+              <Button className="mr-sm-4" variant="primary">Big Predictions</Button>
+              <Form.Control className="mr-sm-4" type="text" placeholder="Search" className="mr-sm-4" />
+              <Button className="mr-sm-4" variant="danger">Search</Button>
             </Form>
           </Navbar>
         </div>    
@@ -124,22 +124,49 @@ class BigPredictions extends Component {
               </BrowserRouter>
             </Col>
             <Col>
-              <div>
-                <Row className="justify-content-md-center">
-                  <Form>
-                    <Form.Group controlId="team1">
-                      <Form.Label>Playoff Chances</Form.Label>
-                      <Form.Control type="team" placeholder="Enter a team" />
-                    </Form.Group>
-                  </Form>
-                </Row>
-                <Row className="justify-content-md-center">
+              <div className="col-lg-9 mx-auto">
+                <Row>
                   <div>
-                    <Button  variant="primary" size="sm">
-                      Calculate
-                    </Button>
+                    <select as={Col} md="6" className="TeamOne-Select" onChange={this.submitHome} inline = "true" style={{ padding: 10 }}>
+                      <option>Pick One Team</option>
+                      <option value="29">Arizona Diamondbacks</option>
+                      <option value="19">Atlanta Braves</option>
+                      <option value="0">Baltimore Orioles</option>
+                      <option value="2">Boston Red Sox</option>
+                      <option value="8">Chicago White Sox</option>
+                      <option value="20">Chicago Cubs</option>
+                      <option value="24">Cincinnati Reds</option>
+                      <option value="5">Cleveland Indians</option>
+                      <option value="27">Colorado Rockies</option>
+                      <option value="6">Detroit Tigers</option>
+                      <option value="11">Houston Astros</option>
+                      <option value="7">Kansas City Royals</option>
+                      <option value="13">Los Angeles Angels</option>
+                      <option value="26">Los Angeles Dodgers</option>
+                      <option value="17">Miami Marlins</option>
+                      <option value="23">Milwaukee Brewers</option>
+                      <option value="9">Minnesota Twins</option>
+                      <option value="3">New York Yankees</option>
+                      <option value="16">New York Mets</option>
+                      <option value="14">Oakland Athletics</option>
+                      <option value="18">Philadelphia Phillies</option>
+                      <option value="21">Pittsburgh Pirates</option>
+                      <option value="28">San Diego Padres</option>
+                      <option value="25">San Fransisco Giants</option>
+                      <option value="12">Seattle Mariners</option>
+                      <option value="22">St. Louis Cardinals</option>
+                      <option value="4">Tampa Bay Rays</option>
+                      <option value="10">Texas Rangers</option>
+                      <option value="1">Toronto Blue Jays</option>
+                      <option value="15">Washington Nationals</option>
+                    </select>
                   </div>
-                </Row>
+                </Row>
+                <Row>
+                  <Button variant="primary" type="compare">
+                    Calculate
+                  </Button>
+                </Row>
               </div>
             </Col>
           </Row>

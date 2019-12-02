@@ -41,9 +41,6 @@ class App extends Component {
       awayTeam
     })
   }
-
-  /*var predictionResult = predictionTable[submitHome()][submitAway()];*/
-
   render() {
 
     console.log("RENDER")
@@ -182,7 +179,7 @@ class App extends Component {
               <div className="col-lg-9 mx-auto">
                 <Row>
                   <div>
-                    <select as={Col} md="6" className="TeamOne-Select" onChange={this.submitHome}>
+                    <select as={Col} md="6" className="TeamOne-Select" onChange={this.submitHome} inlonestyle={{ padding: 10 }}>
                       <option>Pick Team One</option>
                       <option value="29">Arizona Diamondbacks</option>
                       <option value="19">Atlanta Braves</option>
