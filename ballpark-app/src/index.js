@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 
 ReactDOM.render(<App />, document.getElementById('root'));
+
 ReactDOM.render(<BigPredictions />, document.getElementById('bigpredictions'));
 
 // If you want your app to work offline and load faster, you can change

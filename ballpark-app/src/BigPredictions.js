@@ -9,7 +9,42 @@ import { Navbar, Jumbotron, Button, Form, Col, Row} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
 class BigPredictions extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      choosenTeam: null,
+      ranking: [27, 18, 9, 2, 7, 11, 30, 28, 23, 4, 19, 1, 26, 20, 6, 14, 13, 29, 17, 5, 15, 25, 8, 10, 16, 21, 3, 24, 22, 12],
+      result: null,
+      text: ' '
+    }
+  }
+
+  submitBigPrediction = event => {
+    var choosenTeam = event.target.value;
+    console.log(choosenTeam)
+    this.setState({
+      choosenTeam
+    })
+  }
+
+  calculateButton = () => {
+    this.setState({
+      text: 'Team rank to make playoffs is ' + this.state.result
+    });
+  }
+
   render() {
+
+    const {
+      ranking,
+      choosenTeam
+    } = this.state
+    
+    let result = 0
+    result = ranking[choosenTeam]
+
+    console.log("BIG PREDICIONS RESULT: " + result)
     return (
       <div>
         <div>
@@ -127,7 +162,7 @@ class BigPredictions extends Component {
               <div className="col-lg-9 mx-auto">
                 <Row>
                   <div>
-                    <select as={Col} md="6" className="TeamOne-Select" onChange={this.submitHome} inline = "true" style={{ padding: 10 }}>
+                    <select as={Col} md="6" className="TeamOne-Select" onChange={this.submitBigPrediction} inline = "true" style={{ padding: 10 }}>
                       <option>Pick One Team</option>
                       <option value="29">Arizona Diamondbacks</option>
                       <option value="19">Atlanta Braves</option>
@@ -163,7 +198,7 @@ class BigPredictions extends Component {
                   </div>
                 </Row>
                 <Row>
-                  <Button variant="primary" type="compare">
+                  <Button variant="primary" type="compare" onClick={this.calculateButton}>
                     Calculate
                   </Button>
                 </Row>
