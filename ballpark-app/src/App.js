@@ -8,6 +8,10 @@ import { Navbar, Button, Form, Col, Row} from 'react-bootstrap';
 import Figure from 'react-bootstrap/Figure'
 import 'bootstrap/dist/css/bootstrap.css';
 
+
+let HME 
+let AWY
+
 class App extends Component {
 
   constructor(props) {
@@ -45,7 +49,7 @@ class App extends Component {
 
   compareButton = () => {
     this.setState({
-      text: 'Home Team % chance of winning : ' + this.state.predictionResult
+      text: 'Home Team % chance of winning : ' + this.state.predictionTable[HME][AWY]//this.state.predictionResult
     });
   }
 
@@ -65,6 +69,8 @@ class App extends Component {
 
     let predictionResult = 0
     if (homeTeam != null && awayTeam != null) {
+      HME = homeTeam
+      AWY = awayTeam
       predictionResult = predictionTable[homeTeam][awayTeam]
       console.log("PRED RESULT: " + predictionResult)
     }

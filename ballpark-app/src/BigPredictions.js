@@ -8,29 +8,31 @@ import {BrowserRouter} from 'react-router-dom';
 import { Navbar, Jumbotron, Button, Form, Col, Row} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
+let CHOSENTEAM
+
 class BigPredictions extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      choosenTeam: null,
+      chosenTeam: null,
       ranking: [27, 18, 9, 2, 7, 11, 30, 28, 23, 4, 19, 1, 26, 20, 6, 14, 13, 29, 17, 5, 15, 25, 8, 10, 16, 21, 3, 24, 22, 12],
       result: null,
-      text: ' '
+      text: ''
     }
   }
 
   submitBigPrediction = event => {
-    var choosenTeam = event.target.value;
-    console.log(choosenTeam)
+    var chosenTeam = event.target.value;
+    console.log(chosenTeam)
     this.setState({
-      choosenTeam
+      chosenTeam
     })
   }
 
   calculateButton = () => {
     this.setState({
-      text: 'Team rank to make playoffs is ' + this.state.result
+      text: 'Playoff Ranking: ' + this.state.ranking[CHOSENTEAM]
     });
   }
 
@@ -38,13 +40,15 @@ class BigPredictions extends Component {
 
     const {
       ranking,
-      choosenTeam
+      chosenTeam
     } = this.state
-    
-    let result = 0
-    result = ranking[choosenTeam]
+    if (chosenTeam != null) {
+      CHOSENTEAM = chosenTeam
 
-    console.log("BIG PREDICIONS RESULT: " + result)
+    }
+    
+
+    console.log("BIG PREDICIONS RESULT: ")
     return (
       <div>
         <div>
@@ -201,6 +205,9 @@ class BigPredictions extends Component {
                   <Button variant="primary" type="compare" onClick={this.calculateButton}>
                     Calculate
                   </Button>
+                </Row>
+                <Row>
+                  <h1>{this.state.text}</h1>
                 </Row>
               </div>
             </Col>
