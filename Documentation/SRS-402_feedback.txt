@@ -1,0 +1,40 @@
+
+
+Software Requirements Specification
+CMSI 402 -- USChedule Project
+======================================
+
+Very good work on this!
+
+You've expressed the basics of the design well, and it is obvious you've put
+a lot more thought into this.  I notice that you have combined the CSCI breakdown
+part with the requirements part ~~ not standard, but OK for this exercise!
+
+Just a couple of comments:
+Try to make sure that throughout the document your descriptions are in the *present
+tense* rather than in the *future tense*.  I know when you are writing the SRS it
+"hasn't happened yet", but it WILL have happened by the time the project ends.  Try
+to think in terms of "the project does" instead of "the project will do".  You can
+also clean up the language to be a bit more parsimonious, but the future tense thing
+is the real intent of this comment.  Here's one example:
+
+IS:
+2.1.5 Data Analysis : Once our data is normalized and compares, we will use machine
+      learning regression function to compare the data we have normalized and 
+      compared, with the list of wins of each team. This will return a score of 
+      accuracy.
+
+SHOULD BE:
+2.1.5 Data Analysis : Once the data is normalized and compares, a machine learning
+      regression function is used to compare the data with the list of wins of each
+      team, and an accuracy score is returned.
+
+I hope that makes it clear.
+
+Otherwise, nice job!
+
+Make those few minor changes by the end of the semester and you will have
+full credit on this portion of the project.
+
+
+
