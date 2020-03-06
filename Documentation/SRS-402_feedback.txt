@@ -1,7 +1,7 @@
 
 
 Software Requirements Specification
-CMSI 402 -- USChedule Project
+CMSI 402 -- Ballpark Bookie Project
 ======================================
 
 Very good work on this!
