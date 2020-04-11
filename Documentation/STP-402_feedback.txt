@@ -1,0 +1,37 @@
+
+
+Software Test Plan Document
+CMSI 402 -- Ballpark Bookie Project
+======================================
+
+Pretty minimal, but your project has so much in the background that it is
+probably hard to figure out just what testing entails.
+
+However, due to COVID-19 and the lateness in the semester, I'd rather you
+were able to focus on completing a working project than updating documents.
+With this in mind, here are some take-away lessons, listed as bullets:
+
++ the algorithm:
+   - how do you verify the data is "clean"?  Is it manual?  If so say so.
+   - how do you verify the algorithm is correct?  By inspection?
+   - list some acceptance criteria that you will use to verify
++ the database:
+   - what data goes in the database?  If any...
+   - how do you know it got there?  Do you have a tool so you can check?
+         lik PhpMyAdmin or something?
+   - how do you test that you get proper data back out?  expected/actual?
++ data inputs from websites
+   - how do you know that the data you get is really what is on there?
+   - how do you verify that once it's clean it reflects the same values?
++ operation:
+   - how many drop downs do you have?  Do you have a test for each one?
+   - if one is selected, how do you know that the correct selection is
+         made within the program or the algorithm?
++ error handling:
+   - what error conditions do you detect?
+   - do you have tests that simulate those errors?
+   - does your code catch them?
+   - does your code provide a meaningful message to the user for them?
+
+Full credit for you on this assignment.
+
