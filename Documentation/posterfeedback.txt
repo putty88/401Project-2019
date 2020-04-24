@@ -1,0 +1,17 @@
+Hi, Thomas ~~~~
+
+Great job on this!  I love the color, the graphics, and the layout.  Just a couple of suggestions:
+
+1. you still have the "CMSI 401" banner with the original names.  I'd think
+      Andrew *migh* want his name on there, too....
+2. the second sentence under "The Algorithm" is a bit awkward.
+   is:
+      ...to apply learned weights to each variable and outputs most likely winner.
+   should be:
+      ...to apply learned weights to each variable and output the most likely winner
+
+Other than that, it looks wonderful!  Make sure that a copy is in your repo.
+
+Regards,
+Dr. Johnson
+
