@@ -7,6 +7,7 @@ import Nav from 'react-bootstrap/Nav'
 import {BrowserRouter} from 'react-router-dom';
 import { Navbar, Jumbotron, Button, Form, Col, Row} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
+import Figure from 'react-bootstrap/Figure'
 
 let CHOSENTEAM
 
@@ -50,16 +51,19 @@ class BigPredictions extends Component {
 
     console.log("BIG PREDICIONS RESULT: ")
     return (
-      <div>
+      <div style={{backgroundColor: '#D3D3D3'}}>
         <div>
-          <Navbar bg="dark" variant="dark" sticky="top">
-            <Form inline style={{ padding: 10 }}>
-              <Navbar.Brand className="mr-sm-4" href="#home">Ballpark Bookie</Navbar.Brand>
-              <Button className="mr-sm-4" variant="danger">Home</Button>
-              <Button className="mr-sm-4" variant="primary">Big Predictions</Button>
-              <Form.Control className="mr-sm-4" type="text" placeholder="Search" className="mr-sm-4" />
-              <Button className="mr-sm-4" variant="danger">Search</Button>
-            </Form>
+        <Navbar bg="dark" variant="dark" sticky="top">
+              <Nav inline className="mr-auto" style={{ padding: 15 }}>
+                <Navbar.Brand className="mr-sm-4 navbar-brand" href="#home" style={{ width: 100, height: 30 }}>Ballpark Bookie</Navbar.Brand>
+                <Button className="mr-sm-4" variant="primary" href="#home" style={{ width: 100, height: 30 }}>Home</Button>
+                <Button className="mr-sm-4" variant="danger" href="#home" style={{ width: 100, height: 30 }}>Big Predictions</Button>
+                <Button className="mr-sm-4" color="#002D72" href="#home" style={{ width: 100, height: 30 }}>$$$</Button>
+              </Nav>
+              <Form inline style={{ padding: 15 }}>
+                <input value={this.state.search} onChange={this.updateSearch} placeholder="Search"style={{ width: 100, height: 30 }}/>
+                <Button className="ml-lg-4" variant="danger" style={{ width: 75, height: 30 }} onClick={this.searchButton}>Search</Button>
+              </Form>
           </Navbar>
         </div>    
         <div>
@@ -210,6 +214,7 @@ class BigPredictions extends Component {
                   <h1>{this.state.text}</h1>
                 </Row>
               </div>
+            <Figure.Image style={{ padding: 10 }} width={850} height={300} alt="850x300" src="https://i0.wp.com/sportleaguemaps.com/wp-content/uploads/2020-MLB-Map.png?w=1324&ssl=1" />
             </Col>
           </Row>
         </div>

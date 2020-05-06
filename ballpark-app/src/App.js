@@ -302,19 +302,6 @@ class App extends Component {
                   </div>
                 </Row>
                 <Row>
-                <div style={{ padding: 40 }}>
-                  <Figure.Image style={{ padding: 10 }} width={150} height={150} alt="150x150" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/San_Francisco_Giants_Cap_Insignia.svg/350px-San_Francisco_Giants_Cap_Insignia.svg.png" />
-                </div>
-
-                <div style={{ padding: 55
-                 }}>
-
-                </div>
-                
-
-                <div style={{ padding: 40 }}>
-                  <Figure.Image style={{ padding: 10 }} width={150} height={150} alt="150x150" src="https://content.sportslogos.net/logos/54/63/full/4813_los_angeles_dodgers-primary-1972.png" />
-                </div>
                 </Row>
                 <Row>
                   <h1>{this.state.text}</h1>
