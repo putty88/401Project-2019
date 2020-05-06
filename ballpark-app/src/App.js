@@ -7,10 +7,12 @@ import { BrowserRouter } from 'react-router-dom';
 import { Navbar, Button, Form, Col, Row} from 'react-bootstrap';
 import Figure from 'react-bootstrap/Figure'
 import 'bootstrap/dist/css/bootstrap.css';
+import styles from './CompareButton.css';
 
 
 let HME 
 let AWY
+let SEARCHINPUT
 
 class App extends Component {
 
@@ -27,6 +29,7 @@ class App extends Component {
           0.51396195, 0.53147297, 0.35114846, 0.53381564, 0.56159481, 0.45485837], [0.59425734, 0.50477505, 0.41341082, 0.30004067, 0.38554577, 0.37995779, 0.63864483, 0.59009828, 0.50278148, 0.33302531, 0.48188903, 0.29743865, 0.52812483, 0.48856724, 0.34823519, 0.41882343, 0.44060753, 0.61740057, 0.44772233, 0.34648832, 0.45050157, 0.52837019, 0.4092251, 0.39126326, 0.48592738, 0.50347267, 0.3260374, 0.50582516, 0.53381564, 0.42721398], [0.69217128, 0.6101154, 0.51969322, 0.39689785, 0.4906566, 0.48474703, 0.73070132, 0.68848976, 0.60821676, 0.43392939, 0.58812533, 0.39392859, 0.63211822, 0.59458623, 0.45063408, 0.52525135, 0.54735756, 0.71243219, 0.55448748, 0.44872719, 0.55726074, 0.63234714, 0.51537687, 0.49667288, 0.59203666, 0.6088754, 0.42617707, 0.61111424, 0.63741591, 0.53381564]
       ],
       text: ' ',
+      search: '',
       predictionResult: null
     }
   }
@@ -51,6 +54,19 @@ class App extends Component {
     this.setState({
       text: 'Home Team % chance of winning : ' + this.state.predictionTable[HME][AWY]//this.state.predictionResult
     });
+  }
+
+  updateSearch = event => {
+    this.setState({
+      search: event.target.value
+    });
+  }
+
+  searchButton = () => {
+    this.setState({
+      SEARCHINPUT: this.state.SearchInput  
+    })
+    console.log(SEARCHINPUT)
   }
 
 
@@ -78,19 +94,22 @@ class App extends Component {
     return (
 
 
-      <div>
+      <div style={{backgroundColor: '#D3D3D3'}}>
         <div>
           <Navbar bg="dark" variant="dark" sticky="top">
-            <Form inline style={{ padding: 10 }}>
-              <Navbar.Brand className="mr-sm-4" href="#home">Ballpark Bookie</Navbar.Brand>
-              <Button className="mr-sm-4" variant="danger">Home</Button>
-              <Button className="mr-sm-4" variant="primary">Big Predictions</Button>
-              <Form.Control className="mr-sm-4" type="text" placeholder="Search" />
-              <Button className="mr-sm-4" variant="danger">Search</Button>
-            </Form>
+              <Nav inline className="mr-auto" style={{ padding: 15 }}>
+                <Navbar.Brand className="mr-sm-4 navbar-brand" href="#home" style={{ width: 100, height: 30 }}>Ballpark Bookie</Navbar.Brand>
+                <Button className="mr-sm-4" variant="primary" href="#home" style={{ width: 100, height: 30 }}>Home</Button>
+                <Button className="mr-sm-4" variant="danger" href="#home" style={{ width: 100, height: 30 }}>Big Predictions</Button>
+                <Button className="mr-sm-4" color="#002D72" href="#home" style={{ width: 100, height: 30 }}>$$$</Button>
+              </Nav>
+              <Form inline style={{ padding: 15 }}>
+                <input value={this.state.search} onChange={this.updateSearch} placeholder="Search"style={{ width: 100, height: 30 }}/>
+                <Button className="ml-lg-4" variant="danger" style={{ width: 75, height: 30 }} onClick={this.searchButton}>Search</Button>
+              </Form>
           </Navbar>
         </div>
-        <div>
+        <div style={{backgroundColor: '#D3D3D3'}} >
           <Row>
             <Col md="3">
               <BrowserRouter>
@@ -193,8 +212,8 @@ class App extends Component {
             <Col>
               <div className="col-lg-9 mx-auto">
                 <Row>
-                  <div>
-                    <select as={Col} md="6" className="TeamOne-Select" onChange={this.submitHome} inlonestyle={{ padding: 10 }}>
+                  <div style={{ padding: 40 }} >
+                    <select as={Col} md="6" className="TeamOne-Select" onChange={this.submitHome}>
                       <option>Pick Home One</option>
                       <option value="29">Arizona Diamondbacks</option>
                       <option value="19">Atlanta Braves</option>
@@ -228,6 +247,14 @@ class App extends Component {
                       <option value="15">Washington Nationals</option>
                     </select>
                   </div>
+                  <Row>
+                  <div style={{ padding: 40 }}>
+                    <div className="CompareButton" />
+                      <Button backgroundColor="#002D72" type="compare" onClick={this.compareButton} >
+                        Calculate
+                      </Button>
+                  </div>
+                </Row>
                   {/*<Form>
                     <Form.Group as={Col} md="6" controlId="team1">
                       <Form.Label>Team One</Form.Label>
@@ -238,7 +265,7 @@ class App extends Component {
                       <Form.Control type="team" placeholder="Enter Team Two" />
                     </Form.Group>
                   </Form>*/}
-                  <div>
+                  <div style={{ padding: 40 }}>
                     <select as={Col} md="6" className="TeamTwo-Select" onChange={this.submitAway}>
                       <option>Pick Away Two</option>
                       <option value="29">Arizona Diamondbacks</option>
@@ -275,15 +302,25 @@ class App extends Component {
                   </div>
                 </Row>
                 <Row>
-                  <Button variant="primary" type="compare" onClick={this.compareButton}>
-                    Calculate
-                  </Button>
+                <div style={{ padding: 40 }}>
+                  <Figure.Image style={{ padding: 10 }} width={150} height={150} alt="150x150" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/San_Francisco_Giants_Cap_Insignia.svg/350px-San_Francisco_Giants_Cap_Insignia.svg.png" />
+                </div>
+
+                <div style={{ padding: 55
+                 }}>
+
+                </div>
+                
+
+                <div style={{ padding: 40 }}>
+                  <Figure.Image style={{ padding: 10 }} width={150} height={150} alt="150x150" src="https://content.sportslogos.net/logos/54/63/full/4813_los_angeles_dodgers-primary-1972.png" />
+                </div>
                 </Row>
                 <Row>
                   <h1>{this.state.text}</h1>
                 </Row>
               </div>
-              <Figure.Image style={{ padding: 100 }} width={850} height={300} alt="850x300" src="https://archivedinnings.files.wordpress.com/2015/08/baseball-map.png" />
+              <Figure.Image style={{ padding: 10 }} width={850} height={300} alt="850x300" src="https://i0.wp.com/sportleaguemaps.com/wp-content/uploads/2020-MLB-Map.png?w=1324&ssl=1" />
             </Col>
           </Row>
         </div>
