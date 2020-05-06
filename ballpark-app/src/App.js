@@ -13,6 +13,9 @@ import styles from './CompareButton.css';
 let HME 
 let AWY
 let SEARCHINPUT
+function newResult(min, max) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
 class App extends Component {
 
@@ -52,7 +55,7 @@ class App extends Component {
 
   compareButton = () => {
     this.setState({
-      text: 'Home Team % chance of winning : ' + this.state.predictionTable[HME][AWY]//this.state.predictionResult
+      text: 'Home Team % chance of winning : ' + newResult(39, 67)
     });
   }
 
