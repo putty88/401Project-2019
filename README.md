@@ -1,7 +1,7 @@
-# 401Project-2019
+# 402 Project-2020
 # Ballpark Bookie
 
-Riley Persily, Thomas Ochsner, Kea Braekman, and Brett Derham
+Riley Persily, Thomas Ochsner, Kea Braekman, Brett Derham, Andrew Arteaga
 
 Description:
 The Ballpark Bookie application predicts the winner of upcoming Major League Baseball games by using player/team statistics in a logistic regression algorithm.
